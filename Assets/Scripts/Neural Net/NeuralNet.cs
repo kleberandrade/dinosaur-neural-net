@@ -7,19 +7,12 @@ public class NeuralNet
 {
     public float LearnRate { get; set; }
     public float Momentum { get; set; }
-    public List<Neuron> InputLayer { get; set; }
-    public List<List<Neuron>> HiddenLayer { get; set; }
-    public List<Neuron> OutputLayer { get; set; }
+    public List<Neuron> InputLayer { get; set; } = new List<Neuron>();
+    public List<List<Neuron>> HiddenLayer { get; set; } = new List<List<Neuron>>();
+    public List<Neuron> OutputLayer { get; set; } = new List<Neuron>();
 
-    public NeuralNet(int inputNumbers, int outputNumbers, int hiddenNumbers,
-        int hiddenLayerNumbers = 1, float? learnRate = null, float? momentum = null)
+    public NeuralNet(int inputNumbers, int outputNumbers, int hiddenNumbers, int hiddenLayerNumbers = 1, float learnRate = 0.1f, float momentum = 0.9f)
     {
-        LearnRate = learnRate ?? 0.1f;
-        Momentum = momentum ?? 0.9f;
-        InputLayer = new List<Neuron>();
-        HiddenLayer = new List<List<Neuron>>();
-        OutputLayer = new List<Neuron>();
-
         for (int i = 0; i < inputNumbers; i++)
             InputLayer.Add(new Neuron());
 
